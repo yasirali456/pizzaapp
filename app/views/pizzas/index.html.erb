@@ -1,0 +1,15 @@
+<h1>pizzas</h1>
+
+<ul>
+  <% @pizzas.each do |pizza| %>
+    <li>
+      <%= link_to pizza.name, pizza %>
+  		<li><%= link_to "Edit", edit_pizza_path(pizza) %></li>
+  		<li><%= link_to "Destroy", pizza_path(pizza), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "New Pizza", new_pizza_path %>

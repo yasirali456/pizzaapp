@@ -1,0 +1,13 @@
+<h1>pizzas</h1>
+
+<ul>
+  <% @pizzas.each do |pizza| %>
+    <li>
+      <%= link_to pizza.name, as: pizza_url(pizza) %>
+      <%= link_to "order", new_order_path %>
+  		
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Login Here", new_user_session_path unless user_signed_in? %>
+<%= link_to "Dashboard", pizzas_path if user_signed_in? %>
